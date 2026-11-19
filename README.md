@@ -26,7 +26,7 @@ A mellow, low-glare Neovim colorscheme taken from a floral print.
 
 ```lua
 {
-  "you/flowers.nvim",
+  "pebra/flowers.nvim",
   lazy = false,
   priority = 1000,
   config = function()

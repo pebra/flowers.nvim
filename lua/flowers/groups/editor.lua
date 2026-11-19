@@ -1,0 +1,107 @@
+local util = require("flowers.util")
+
+---@param c table
+---@param opts flowers.Config
+return function(c, opts)
+  local bg = opts.transparent and c.none or c.bg
+  local float = opts.transparent and c.none or c.bg_float
+
+  return {
+    Normal = { fg = c.fg, bg = bg },
+    NormalNC = { fg = c.fg, bg = opts.transparent and c.none or c.bg_inactive },
+    NormalFloat = { fg = c.fg, bg = float },
+    FloatBorder = { fg = c.border, bg = float },
+    FloatTitle = { fg = c.orange, bg = float, bold = true },
+    FloatFooter = { fg = c.comment, bg = float },
+    NormalSB = { fg = c.fg_dim, bg = c.bg_sidebar },
+
+    Cursor = { fg = c.bg, bg = c.fg },
+    lCursor = "Cursor",
+    CursorIM = "Cursor",
+    TermCursor = { fg = c.bg, bg = c.orange },
+    CursorLine = { bg = c.bg_highlight },
+    CursorColumn = "CursorLine",
+    ColorColumn = { bg = c.bg_highlight },
+    LineNr = { fg = c.gutter },
+    LineNrAbove = "LineNr",
+    LineNrBelow = "LineNr",
+    CursorLineNr = { fg = c.orange, bold = true },
+    SignColumn = { fg = c.gutter, bg = bg },
+    CursorLineSign = "SignColumn",
+    FoldColumn = { fg = c.muted, bg = bg },
+    CursorLineFold = "FoldColumn",
+    Folded = { fg = c.comment, bg = c.bg_highlight },
+
+    VertSplit = { fg = c.border },
+    WinSeparator = { fg = c.border },
+    StatusLine = { fg = c.fg_dim, bg = c.bg_statusline },
+    StatusLineNC = { fg = c.muted, bg = c.bg_dark },
+    StatusLineTerm = "StatusLine",
+    StatusLineTermNC = "StatusLineNC",
+    WinBar = { fg = c.fg_dim, bold = true },
+    WinBarNC = { fg = c.muted },
+    TabLine = { fg = c.comment, bg = c.bg_dark },
+    TabLineFill = { bg = c.bg_dark },
+    TabLineSel = { fg = c.fg, bg = c.bg, bold = true },
+
+    Visual = { bg = c.bg_visual },
+    VisualNOS = "Visual",
+    Search = { fg = c.fg, bg = c.search },
+    CurSearch = { fg = c.bg, bg = c.orange, bold = true },
+    IncSearch = "CurSearch",
+    Substitute = { fg = c.bg, bg = c.rust },
+    MatchParen = { fg = c.orange, bg = c.match, bold = true },
+
+    Pmenu = { fg = c.fg, bg = c.bg_float },
+    PmenuSel = { bg = c.bg_visual, bold = true },
+    PmenuKind = { fg = c.blue, bg = c.bg_float },
+    PmenuKindSel = { fg = c.blue, bg = c.bg_visual },
+    PmenuExtra = { fg = c.comment, bg = c.bg_float },
+    PmenuExtraSel = { fg = c.comment, bg = c.bg_visual },
+    PmenuSbar = { bg = c.bg_highlight },
+    PmenuThumb = { bg = c.border },
+    PmenuMatch = { fg = c.orange, bold = true },
+    PmenuMatchSel = { fg = c.orange, bold = true },
+    WildMenu = "PmenuSel",
+
+    NonText = { fg = c.border },
+    EndOfBuffer = { fg = c.bg },
+    Whitespace = { fg = c.border },
+    SpecialKey = { fg = c.muted },
+    Conceal = { fg = c.comment },
+    Directory = { fg = c.blue },
+    Title = { fg = c.orange, bold = true },
+    QuickFixLine = { bg = c.bg_visual, bold = true },
+
+    ModeMsg = { fg = c.fg_dim, bold = true },
+    MsgArea = { fg = c.fg },
+    MoreMsg = { fg = c.blue },
+    Question = { fg = c.blue },
+    ErrorMsg = { fg = c.error },
+    WarningMsg = { fg = c.warning },
+    OkMsg = { fg = c.ok },
+
+    SpellBad = { sp = c.error, undercurl = true },
+    SpellCap = { sp = c.warning, undercurl = true },
+    SpellLocal = { sp = c.info, undercurl = true },
+    SpellRare = { sp = c.hint, undercurl = true },
+
+    DiffAdd = { bg = c.diff.add },
+    DiffChange = { bg = c.diff.change },
+    DiffDelete = { fg = util.blend(c.rust, c.bg, 0.6), bg = c.diff.delete },
+    DiffText = { bg = c.diff.text },
+    Added = { fg = c.git.add },
+    Changed = { fg = c.git.change },
+    Removed = { fg = c.git.delete },
+    diffAdded = "Added",
+    diffChanged = "Changed",
+    diffRemoved = "Removed",
+    diffFile = { fg = c.blue },
+    diffIndexLine = { fg = c.comment },
+    diffLine = { fg = c.orange },
+
+    healthError = { fg = c.error },
+    healthWarning = { fg = c.warning },
+    healthSuccess = { fg = c.ok },
+  }
+end
